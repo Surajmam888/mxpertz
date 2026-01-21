@@ -1,0 +1,76 @@
+<mat-card class="details-card" *ngIf="story">
+
+  <!-- COVER IMAGE -->
+  <img
+    class="cover-img"
+    [src]="getImage(story.Image[0])"
+    (error)="onImageError($event)"
+  />
+
+  <!-- TITLE -->
+  <h2 class="title">{{ story.Title }}</h2>
+
+  <mat-tab-group>
+
+    <!-- TAB 1: STORY -->
+    <mat-tab label="Story">
+      <div
+        class="story-section"
+        *ngFor="let block of story.Storyadvenure?.content"
+      >
+        <img
+          *ngIf="block.Storyimage?.length"
+          [src]="getImage(block.Storyimage[0])"
+          (error)="onImageError($event)"
+        />
+
+        <p *ngFor="let para of block.Paragraph">
+          {{ para }}
+        </p>
+      </div>
+    </mat-tab>
+
+    <!-- TAB 2: WORD EXPLORE -->
+    <mat-tab label="Word Explore">
+      <mat-card
+        class="word-card"
+        *ngFor="let word of story.Wordexplore"
+      >
+        <img
+          *ngIf="word.Storyimage?.length"
+          [src]="getImage(word.Storyimage[0])"
+          (error)="onImageError($event)"
+        />
+
+        <h3>{{ word.Storytitle }}</h3>
+        <p><b>Meaning:</b> {{ word.Storyttext }}</p>
+        <p><b>Info:</b> {{ word.Storyitext }}</p>
+        <p><b>Synonyms:</b> {{ word.Synonyms }}</p>
+        <p><b>Antonyms:</b> {{ word.Antonyms }}</p>
+        <p><b>Noun:</b> {{ word.Noun }}</p>
+      </mat-card>
+    </mat-tab>
+
+    <!-- TAB 3: BRAIN QUEST -->
+    <mat-tab label="Brain Quest">
+      <mat-card
+        class="quiz-card"
+        *ngFor="let quiz of story.Brainquest"
+      >
+        <h3>{{ quiz.Question }}</h3>
+
+        <ul>
+          <li *ngFor="let opt of quiz.Option">
+            {{ opt }}
+          </li>
+        </ul>
+
+        <p class="answer">
+          <b>Answer:</b> {{ quiz.Answer }}
+        </p>
+      </mat-card>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</mat-card>

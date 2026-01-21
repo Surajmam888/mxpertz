@@ -1,0 +1,103 @@
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(90deg, #0a2a66, #0f4c81);
+}
+
+/* WRAPPER */
+.header-wrapper {
+  max-width: 1300px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.logo img {
+  width: 28px;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 26px;
+}
+
+.nav a {
+  color: #ffffff;
+  opacity: 0.85;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+
+.nav a:hover,
+.nav a.active {
+  opacity: 1;
+}
+
+/* SIGN OUT BUTTON */
+.signout-btn {
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1e88e5, #26c6da);
+  font-size: 14px;
+}
+
+/* MOBILE MENU BUTTON */
+.menu-btn {
+  display: none;
+  color: #ffffff;
+}
+
+/* MOBILE NAV */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  background: #0a2a66;
+}
+
+.mobile-nav a {
+  color: #ffffff;
+  padding: 14px 0;
+  text-decoration: none;
+}
+
+.signout-btn.full {
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav,
+  .signout-btn {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .mobile-nav.show {
+    display: flex;
+  }
+}

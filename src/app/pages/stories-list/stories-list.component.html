@@ -1,0 +1,61 @@
+<!-- FILTER BUTTONS -->
+<div class="filter-bar">
+  <button
+    mat-raised-button
+    [class.active]="activeFilter === 'New'"
+    (click)="filterStories('New')"
+  >
+    New
+  </button>
+
+  <button
+    mat-raised-button
+    color="accent"
+    [class.active]="activeFilter === 'In Progress'"
+    (click)="filterStories('In Progress')"
+  >
+    In Progress
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [class.active]="activeFilter === 'Completed'"
+    (click)="filterStories('Completed')"
+  >
+    Completed
+  </button>
+
+  <button
+    mat-stroked-button
+    (click)="clearFilter()"
+  >
+    Clear All
+  </button>
+</div>
+
+<!-- STORIES GRID -->
+<div class="container">
+  <mat-card
+    class="story-card"
+    *ngFor="let story of filteredStories"
+    (click)="openStory(story?._id)"
+  >
+    <img
+      mat-card-image
+      [src]="getImage(story)"
+      [alt]="story?.Title || 'Story image'"
+      (error)="onImageError($event)"
+    />
+
+    <mat-card-content>
+      <h3>{{ story?.Title }}</h3>
+      <p>{{ story?.Description | slice:0:80 }}...</p>
+
+      <!-- STATUS BADGE -->
+      <span class="status" [ngClass]="story?.Status">
+        {{ story?.Status }}
+      </span>
+    </mat-card-content>
+  </mat-card>
+</div>
