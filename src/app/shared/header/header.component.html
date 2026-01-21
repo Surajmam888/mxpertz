@@ -1,13 +1,11 @@
 <header class="header">
   <div class="header-wrapper">
 
-    <!-- LOGO -->
     <div class="logo">
       <!-- <img src="assets/logo.png" alt="BrainyLingo" /> -->
       <span>BrainyLingo</span>
     </div>
 
-    <!-- NAV -->
     <nav class="nav">
       <a routerLink="/" routerLinkActive="active">Home</a>
       <a routerLink="/leaderboard">Leaderboard</a>
@@ -15,21 +13,21 @@
       <a routerLink="/genre">Genre</a>
     </nav>
 
-    <!-- SIGN OUT -->
     <button class="signout-btn">Sign Out</button>
 
-    <!-- MOBILE MENU ICON -->
     <button class="menu-btn" (click)="toggleMenu()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-nav" [class.show]="mobileMenu">
     <a routerLink="/" (click)="toggleMenu()">Home</a>
     <a routerLink="/leaderboard" (click)="toggleMenu()">Leaderboard</a>
     <a routerLink="/quiz" (click)="toggleMenu()">Daily Quiz</a>
     <a routerLink="/genre" (click)="toggleMenu()">Genre</a>
     <button class="signout-btn full">Sign Out</button>
+  </div>
+  <div class="science-title">
+  Science Fiction Stories
   </div>
 </header>
